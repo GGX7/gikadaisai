@@ -1,0 +1,922 @@
+@charset "utf-8";
+
+/* Imports */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url("slide.css");
+@import url("inview.css");
+
+/* Custom Properties */
+:root {
+	--text-color: #333;
+	--dark-color: #222;
+	--primary-color: #C7000A;
+	--primary-inverse-color: #fff;
+	--global-space: 5vw;
+}
+
+/* Keyframes */
+@keyframes animation1 {
+	from { left: -200px; }
+	to { left: 0; }
+}
+@keyframes opa1 {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes fadeIn {
+	from { opacity: 0; transform: scale(0.8); }
+	to { opacity: 1; transform: scale(1); }
+}
+
+/* Base & Reset Styles */
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-size: 13px;
+}
+body {
+	font-family: "Noto Sans JP", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", "Osaka", "MS PGothic", "ＭＳ Ｐゴシック", sans-serif;
+	font-optical-sizing: auto;
+	-webkit-text-size-adjust: none;
+	background: #fff;
+	color: var(--text-color);
+	line-height: 2;
+}
+body.no-scroll {
+    overflow: hidden;
+}
+* {
+	box-sizing: border-box;
+}
+figure, dd, nav, ul, li, ol, address {
+	margin: 0;
+	padding: 0;
+	font-style: normal;
+}
+nav ul {
+	list-style: none;
+}
+section li {
+	margin-left: 1rem;
+}
+table {
+	border-collapse: collapse;
+}
+img, video {
+	border: none;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+iframe {
+	width: 100%;
+}
+input {
+	font-size: 1rem;
+}
+section + section {
+	margin-top: 3rem;
+}
+a {
+	color: var(--text-color);
+	transition: 0.3s;
+	text-decoration: none;
+}
+a:hover {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+/* Layout */
+#container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+#contents {
+	flex: 1;
+}
+body:not(.home) #container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+#contents {
+	padding: var(--global-space);
+}
+
+/* Header */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 70px;
+	padding: 1vw 3vw;
+	font-family: "Reddit Sans", "Noto Sans JP", sans-serif;
+	font-weight: 700;
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+}
+#logo a {
+	display: block;
+	text-decoration: none;
+	font-size: 1.6rem;
+	font-weight: 800;
+}
+#logo img {
+	display: block;
+	width: 160px;
+}
+#daigaku {
+	position: relative;
+	bottom: -14px;
+	left: 1px;
+	font-size: 0.9rem;
+}
+
+/* Desktop Navigation */
+.large-screen #menubar {
+	display: block;
+}
+.large-screen #menubar > nav > ul {
+	display: flex;
+	font-size: 0.85rem;
+	gap: 0.5rem;
+}
+.large-screen #menubar li a {
+	border-radius: 100px;
+	padding: 0.2rem 1rem;
+}
+.large-screen #menubar li a:hover {
+	background: #fff;
+}
+.ddmenu_parent ul {
+	display: none;
+}
+.large-screen .ddmenu_parent:hover > ul {
+    display: block;
+}
+.large-screen #menubar ul ul {
+	animation: opa1 0.5s 0.1s both;
+    position: absolute;
+	z-index: 100;
+}
+.large-screen #menubar ul ul a {
+	margin-top: 0.4rem;
+}
+
+/* Main Content */
+main h2 {
+	font-family: "Reddit Sans", "Noto Sans JP", sans-serif;
+	font-size: 3rem;
+	letter-spacing: 0.1em;
+	color: var(--primary-color);
+}
+main h2 .hosoku {
+	display: block;
+	font-weight: normal;
+	font-size: 0.3em;
+}
+main h3 {
+	display: inline-block;
+	border-bottom: 3px solid var(--text-color);
+}
+
+/* Footer Redesign */
+footer {
+    position: relative;
+    background: var(--dark-color);
+    color: #f0f0f0;
+    padding: 5vw var(--global-space) 0;
+    margin-top: 10vw;
+	font-size: 0.9rem;
+	line-height: 1.8;
+}
+footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(5vw + 1px);
+    background: var(--dark-color);
+    top: -5vw;
+	clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+.footer-col h4 {
+    font-family: "Reddit Sans", sans-serif;
+    font-size: 1.2rem;
+    color: var(--primary-inverse-color);
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+}
+.logo-footer a {
+    text-decoration: none;
+    color: var(--primary-inverse-color);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.daigaku-footer {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+.gikadaisai-footer {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+.footer-address {
+    font-size: 0.85rem;
+    color: #ccc;
+}
+.footer-nav {
+    list-style: none;
+    padding: 0;
+}
+.footer-nav li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-nav li a:hover {
+    color: var(--primary-color);
+}
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #888;
+}
+.footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+}
+.footer-bottom a:hover {
+    color: var(--primary-color);
+}
+.footer-bottom .pr {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Components */
+.pagetop-show {
+	display: block;
+}
+.pagetop a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	z-index: 99;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	color: #fff;
+	font-size: 1.5rem;
+	background: rgba(0,0,0,0.2);
+	width: 60px;
+	line-height: 60px;
+	border-radius: 50%;
+}
+.bg1 {
+	position: relative;
+	background: var(--primary-color);
+	color: var(--primary-inverse-color);
+	padding: 5vw var(--global-space);
+	margin: 10vw calc(-1 * var(--global-space));
+}
+.bg1 a {
+	color: inherit;
+}
+.bg1 h2 {
+	color: var(--primary-inverse-color);
+}
+.bg1::before, .bg1::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: calc(5vw + 1px);
+	background: var(--primary-color);
+}
+.bg1::before {
+	top: -5vw;
+	clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+.bg1::after {
+	bottom: -5vw;
+	clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+@font-face {
+	font-family: ZenMaru;
+	src: url("/font/Zen_Maru_Gothic/ZenMaruGothic-Medium.ttf") format("truetype");
+}
+.lineup {
+	margin-top: 20px;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.poster, .theme {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+.poster {
+	padding: 10px 40px;
+}
+.poster img {
+	object-fit: contain;
+	border: 10px solid #ffffff79;
+    box-shadow: 0 0 5px #a8a8a8;
+}
+.theme {
+	flex-direction: column;
+}
+.theme_h2 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.theme_p {
+	margin: 0 0 20px 0;
+	font-size: 80px;
+	font-family: "ZenMaru";
+}
+
+/* === Access Page Specific Styles === */
+.map-container {
+    margin-bottom: 3rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* === Access Block === */
+.access-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+.access-info {
+    background: rgba(0,0,0,0.15);
+    padding: 2rem;
+    border-radius: 15px;
+}
+.access-method {
+    margin-bottom: 2rem;
+}
+.access-method:last-child {
+    margin-bottom: 0;
+}
+.access-method h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    padding-bottom: 0.5rem;
+    margin: 0 0 1rem 0;
+}
+.access-method h4 .fas {
+    margin-right: 0.8rem;
+}
+.access-description p {
+    margin: 0;
+    line-height: 1.8;
+}
+.access-description .note {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+/* Bus Countdown Styles */
+.bus-countdown-wrapper {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.bus-countdown-wrapper h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+}
+.bus-countdown-wrapper h5 .fas {
+    margin-right: 0.5rem;
+}
+#bus-schedule-note {
+    display: none; /* Hidden by default, shown via JS */
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.3rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+#bus-countdown-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(0,0,0,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+#bus-countdown-display p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+#bus-countdown-display .time-container {
+    font-family: "Reddit Sans", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+#bus-countdown-display .time-container small {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 0.8rem;
+    margin-left: 0.2rem;
+    font-weight: 400;
+}
+p.next-bus-info {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+/* Map Button Styles */
+.map-button-container {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+.map-button {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--primary-inverse-color);
+    border-radius: 12px;
+    padding: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.map-button:hover {
+    background: #f5f5f5;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+.map-button-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--primary-color);
+}
+.map-button-text {
+    text-align: left;
+}
+.map-button-text strong {
+    font-size: 1.2rem;
+    display: block;
+    color: var(--primary-color) !important;
+}
+.map-button-text small {
+    font-size: 0.8rem;
+    color: #555 !important;
+    display: block;
+}
+
+
+/* === Countdown Redesign === */
+.countdown-card {
+	background: rgba(0, 0, 0, 0.25);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 15px;
+	padding: 2rem;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+	text-align: center;
+	color: var(--primary-inverse-color);
+}
+.countdown-card .event-date {
+	font-size: clamp(1.5rem, 5vw, 2.5rem);
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 0;
+}
+.countdown-card #countdown-text {
+	font-size: 1rem;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	margin: 0.5rem 0 1.5rem 0;
+	opacity: 0.9;
+}
+#countdown {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+}
+.timer-unit {
+	text-align: center;
+}
+#countdown span {
+	font-family: "Reddit Sans", sans-serif;
+	font-weight: 700;
+	font-size: clamp(2.5rem, 10vw, 4rem);
+	line-height: 1;
+	display: block;
+}
+#countdown p {
+	font-size: 0.8rem;
+	margin-top: 0.25rem;
+	letter-spacing: 0.05em;
+}
+.separator {
+	width: 1px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* === Hamburger Menu & Mobile Navigation (Flat Redesign) === */
+.large-screen #menubar_hdr {
+    display: none;
+}
+.small-screen #menubar_hdr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1001;
+    cursor: pointer;
+    right: 3vw;
+    top: 15px;
+    padding: 8px;
+    width: 34px;
+    height: 30px;
+    border: none;
+    background: none;
+}
+.small-screen #menubar_hdr span {
+    display: block;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-color);
+    height: 3px;
+    width: 100%;
+}
+.small-screen #menubar_hdr.ham span {
+    background-color: var(--primary-inverse-color); /* Close (X) icon should be white */
+}
+.small-screen #menubar_hdr.ham span:nth-of-type(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.small-screen #menubar_hdr.ham span:nth-of-type(2) {
+    opacity: 0;
+}
+.small-screen #menubar_hdr.ham span:nth-of-type(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+.small-screen #menubar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: var(--primary-color); /* Solid red background */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%); /* Start off-screen */
+    transition: all 0.4s ease-in-out;
+}
+.small-screen #menubar.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Slide in */
+}
+.small-screen #menubar nav,
+.small-screen #menubar nav ul {
+    width: 100%;
+}
+.small-screen #menubar nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+.small-screen #menubar nav a {
+    color: var(--primary-inverse-color);
+    font-size: 2rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: background-color 0.3s, opacity 0.3s ease, transform 0.3s ease;
+}
+.small-screen #menubar.is-open nav a {
+    opacity: 1;
+    transform: translateY(0);
+}
+.small-screen #menubar.is-open nav li:nth-child(1) a { transition-delay: 0.15s; }
+.small-screen #menubar.is-open nav li:nth-child(2) a { transition-delay: 0.20s; }
+.small-screen #menubar.is-open nav li:nth-child(3) a { transition-delay: 0.25s; }
+.small-screen #menubar.is-open nav li:nth-child(4) a { transition-delay: 0.30s; }
+.small-screen #menubar.is-open nav li:nth-child(5) a { transition-delay: 0.35s; }
+.small-screen #menubar nav a:hover {
+    color: var(--primary-inverse-color);
+    background-color: rgba(0, 0, 0, 0.15); /* Subtle dark hover for flat design */
+}
+.small-screen #menubar ul ul {
+    display: none;
+    padding-top: 1rem;
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.small-screen #menubar ul ul a {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+.small-screen #menubar .ddmenu_parent > a.is-active + ul {
+    display: block;
+}
+
+
+/* Utility classes */
+.c { text-align: center !important; }
+
+/* Media Queries */
+@media screen and (max-width: 600px) {
+	#contents {
+		padding-top: 80px;
+	}
+	.countdown-card {
+		padding: 1.5rem 1rem;
+	}
+	#countdown {
+		gap: 0.5rem;
+		justify-content: space-around;
+	}
+	.separator {
+		display: none;
+	}
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .access-container {
+        padding: 1.5rem 1rem;
+    }
+    #bus-countdown-display {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+@media (min-width: 600px) {
+    .lineup {
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 900px) {
+	html, body {
+		font-size: 16px;
+	}
+	header {
+		position: fixed;
+	}
+}
+
+/* === Sponsor Page Specific Styles === */
+.sponsor-grid {
+    display: grid;
+    /* 各タイルの最小幅を180pxとし、可能な限り均等にカラムを配置 */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem; /* タイル間の余白 */
+    margin-top: 3rem;
+}
+
+.sponsor-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    min-height: 160px; /* タイルの高さをある程度揃える */
+}
+
+.sponsor-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-color: rgba(199, 0, 10, 0.5); /* Primary color with transparency */
+}
+
+.sponsor-tile img {
+    max-height: 70px; /* ロゴの高さを制限 */
+    max-width: 100%;
+    object-fit: contain; /* 画像のアスペクト比を維持 */
+    margin-bottom: 1rem;
+}
+
+.sponsor-tile .sponsor-name {
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+/* === View Options Panel === */
+.view-options {
+    margin-bottom: 2rem;
+}
+.filter-sort-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem; /* 縦の隙間と横の隙間 */
+}
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.control-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap; /* ラベルが改行しないように */
+}
+.control-group select {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    background-color: #fff;
+}
+
+
+/* === Shop List Page === */
+.shop-list-container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.shop-item {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+.shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.shop-icon {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    background-color: #f5f5f5;
+}
+.shop-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.shop-details {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* ★--------- 企画名メインのレイアウトに固定 ---------★ */
+.shop-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f0f0f0;
+    order: 2; /* 表示順序を下に */
+}
+.shop-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #eee;
+    padding: 0.2em 0.7em;
+    border-radius: 50px;
+    color: #555;
+}
+.shop-circle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+}
+.shop-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+    order: 1; /* 表示順序を上に */
+    flex-grow: 1;
+}
+
+/* === Contact Page Specific Styles === */
+.contact-container {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    text-align: left;
+}
+
+.contact-button-wrapper {
+    text-align: center;
+    margin: 2rem 0 3rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--primary-inverse-color);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cta-button:hover {
+    background: #a50008; /* A slightly darker red */
+    color: var(--primary-inverse-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.cta-button .fas {
+    margin-right: 0.8em;
+}
+
+.contact-notes {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+}
+
+.contact-notes h3 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin: 0 0 1rem 0;
+}
+
+.contact-notes h3 .fas {
+    margin-right: 0.5em;
+}
+
+.contact-notes p {
+    margin: 0;
+    line-height: 1.8;
+}
