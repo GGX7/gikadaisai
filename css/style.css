@@ -4,6 +4,8 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
 @import url("slide.css");
 @import url("inview.css");
 
@@ -544,7 +546,7 @@ p.next-bus-info {
 	text-align: center;
 }
 #countdown span {
-	font-family: "Reddit Sans", sans-serif;
+	font-family: "IBM Plex Mono", sans-serif;
 	font-weight: 700;
 	font-size: clamp(2.5rem, 10vw, 4rem);
 	line-height: 1;
@@ -920,4 +922,122 @@ p.next-bus-info {
 .contact-notes p {
     margin: 0;
     line-height: 1.8;
+}
+
+/* === Feature Block Redesign (Full Poster Visible) === */
+.feature-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5vw var(--global-space);
+    margin: 5vw 0;
+    overflow: hidden; /* はみ出し防止 */
+}
+
+/* ゲストセクションで左右の配置を反転 */
+.feature-block.layout-reversed .feature-content-text {
+    order: 2;
+}
+.feature-block.layout-reversed .feature-poster-container {
+    order: 1;
+}
+
+.feature-content-text {
+    text-align: center;
+}
+
+.feature-heading {
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+.feature-en-heading {
+    display: block;
+    font-family: Zalando Sans Expanded, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    color: var(--primary-color);
+    letter-spacing: 0.05em;
+}
+.feature-ja-heading {
+    display: block;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    color: var(--text-color);
+}
+
+.theme-showcase-text {
+    font-family: "ZenMaru", "Noto Sans JP", serif;
+    font-size: clamp(4rem, 20vw, 9rem);
+    font-weight: medium;
+    line-height: 1;
+    margin: 0;
+    color: var(--dark-color);
+}
+
+.guest-showcase-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.feature-poster-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* ★ポスター画像を切り取らずに全体表示 */
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    transform: rotate(2deg); /* ポスターを少し傾けて動きを出す */
+    transition: all 0.3s ease;
+}
+.feature-block.layout-reversed .feature-poster-container img {
+    transform: rotate(-2deg); /* 反対側のセクションは逆向きに傾ける */
+}
+.feature-poster-container img:hover {
+    transform: rotate(0) scale(1.05); /* ホバー時に傾きを戻して拡大 */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* レスポンシブ対応 (スマホ表示) */
+@media screen and (max-width: 768px) {
+    .feature-block {
+        grid-template-columns: 1fr; /* 1列表示に切り替え */
+        gap: 2.5rem;
+        padding-top: 1vw;
+        padding-bottom: 10vw;
+    }
+    .feature-block.layout-reversed .feature-content-text,
+    .feature-block.layout-reversed .feature-poster-container {
+        order: 0; /* スマホでは反転を解除し、常にテキストが先 */
+    }
+    .feature-poster-container {
+        order: 2; /* スマホでは常にポスターが後 */
+    }
+    .feature-poster-container img,
+    .feature-block.layout-reversed .feature-poster-container img {
+        transform: rotate(0); /* スマホでは傾きをなくす */
+    }
+}
+/* === Feature Block Button Style === */
+.feature-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.feature-button:hover {
+    background: #A50008; /* 少し暗い赤色 */
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0,0,0,0.15);
 }
