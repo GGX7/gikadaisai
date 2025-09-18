@@ -91,7 +91,7 @@
 			<div class="access-method">
 				<h4><i class="fas fa-train-subway"></i>電車・バスでお越しの方</h4>
 				<div class="access-description">
-					<p><strong>JR東海道本線「豊橋駅」</strong>で下車。<br>豊橋駅東口バス乗り場から豊鉄バス「技科大線」に乗車（約25分）、「技科大」バス停下車すぐ。</p>
+					<p><strong>JR各線・名鉄名古屋本線「豊橋駅」</strong>で下車。<br>豊橋駅東口バス乗り場から豊鉄バス「技科大線」に乗車（約25分）、「技科大前」バス停下車すぐ。</p>
 					<!-- Bus Countdown Section -->
 					<div class="bus-countdown-wrapper">
 						<h5><i class="fas fa-bus"></i>技科大線の出発案内（豊橋駅前 発）</h5>
@@ -116,7 +116,7 @@
 			</div>
 		</div>
 		<div class="map-button-container">
-			<a href="https://www.google.com/maps/place/%E8%B1%8A%E6%A9%8B%E6%8A%80%E8%A1%93%E7%A7%91%E5%AD%A6%E5%A4%A7" target="_blank" class="map-button">
+			<a href="https://www.google.com/maps/dir/?api=1&destination=${%E8%B1%8A%E6%A9%8B%E6%8A%80%E8%A1%93%E7%A7%91%E5%AD%A6%E5%A4%A7%E5%AD%A6}" target="_blank" class="map-button">
 				<span class="map-button-icon"><i class="fas fa-map-marked-alt"></i></span>
 				<span class="map-button-text">
 					<strong>Google Mapで経路を確認</strong>
@@ -171,7 +171,6 @@
 	</div>
 	<div class="footer-bottom">
 		<small>Copyright&copy; 第48回技科大祭実行委員会 All Rights Reserved.</small>
-		<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
 	</div>
 </footer>
 <!-- /#フッター -->
@@ -188,19 +187,14 @@
 <span></span><span></span><span></span>
 </div>
 
-<!--jQueryの読み込み-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<!--パララックス（inview）-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
-<script src="js/jquery.inview_set.js"></script>
 
-<!--このテンプレート専用のスクリプト-->
 <script src="js/main.js"></script>
 
 <!-- 動的コンテンツ用スクリプト -->
 <script>
-// --- Festival Countdown Timer ---
 const festivalCountDownDate = new Date("Oct 11, 2025 00:00:00").getTime();
 const festivalCountdownFunction = setInterval(function() {
     const now = new Date().getTime();
@@ -229,20 +223,17 @@ const festivalCountdownFunction = setInterval(function() {
     }
 }, 1000);
 
-// --- Bus Countdown Timer ---
+
 document.addEventListener('DOMContentLoaded', async function() {
-    const busMinutesEl = document.getElementById('bus-minutes');
-    const busSecondsEl = document.getElementById('bus-seconds');
-    const nextBusTimeEl = document.getElementById('next-bus-time');
     const countdownDisplayEl = document.getElementById('bus-countdown-display');
+    const nextBusTimeEl = document.getElementById('next-bus-time');
     const busScheduleNoteEl = document.getElementById('bus-schedule-note');
+    const nextBusInfoEl = document.querySelector('p.next-bus-info');
 
     async function fetchTimetable() {
         try {
             const response = await fetch('js/timetable.json');
-            if (!response.ok) {
-                throw new Error('時刻表ファイルが読み込めませんでした。');
-            }
+            if (!response.ok) throw new Error('時刻表ファイルが読み込めませんでした。');
             return await response.json();
         } catch (error) {
             console.error(error);
@@ -256,44 +247,77 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function updateBusCountdown() {
         const now = new Date();
-        const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+        const day = now.getDay(); 
         const currentTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
 
         let schedule;
-        if (day === 6) { // Saturday
+        if (day === 6) { 
             schedule = timetable.saturday;
             busScheduleNoteEl.textContent = "";
             busScheduleNoteEl.style.display = "none";
-        } else if (day === 0) { // Sunday
+        } else if (day === 0) { 
             schedule = timetable.sunday;
             busScheduleNoteEl.textContent = "";
             busScheduleNoteEl.style.display = "none";
-        } else { // Weekday
+        } else { 
             schedule = timetable.weekday;
             busScheduleNoteEl.textContent = "※表示は平日ダイヤです。技科大祭当日の土日ダイヤとは異なります。";
             busScheduleNoteEl.style.display = "block";
         }
 
         let nextBus = schedule.find(time => time > currentTime);
+        let nextBusDate = new Date();
 
-        if (nextBus) {
-            countdownDisplayEl.style.display = "flex";
-            const [hours, minutes] = nextBus.split(':');
-            const nextBusDate = new Date();
-            nextBusDate.setHours(hours);
-            nextBusDate.setMinutes(minutes);
-            nextBusDate.setSeconds(0);
+        if (!nextBus) {
+            const tomorrow = new Date();
+            tomorrow.setDate(now.getDate() + 1);
+            const tomorrowDay = tomorrow.getDay();
+            
+            let tomorrowSchedule;
+            if (tomorrowDay === 6) { tomorrowSchedule = timetable.saturday; }
+            else if (tomorrowDay === 0) { tomorrowSchedule = timetable.sunday; }
+            else { tomorrowSchedule = timetable.weekday; }
 
-            const distance = nextBusDate.getTime() - now.getTime();
+            nextBus = tomorrowSchedule[0];
+            nextBusDate = tomorrow;
+        }
+
+        if (!nextBus) {
+            countdownDisplayEl.innerHTML = "<p>次のバス情報が見つかりません。</p>";
+            if (nextBusTimeEl) nextBusTimeEl.textContent = "--:--";
+            return;
+        }
+
+        const [hours, minutes] = nextBus.split(':');
+        nextBusDate.setHours(hours, minutes, 0, 0);
+        
+        const distance = nextBusDate.getTime() - now.getTime();
+        
+
+        if (distance > 3600000) { 
+            countdownDisplayEl.innerHTML = `<p style="font-size: 1.1rem; font-weight: 500;">次のバスは <strong>${nextBus}</strong> 発です</p>`;
+            if (nextBusInfoEl) nextBusInfoEl.style.display = 'none'; 
+        } else {
+
+            if (nextBusInfoEl) nextBusInfoEl.style.display = 'block'; 
+            
+            countdownDisplayEl.innerHTML = `
+                <p>次のバスまであと</p>
+                <div class="time-container">
+                    <span id="bus-minutes">--</span><small>分</small>
+                    <span id="bus-seconds">--</span><small>秒</small>
+                </div>
+            `;
+            
             const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const secs = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            const busMinutesEl = document.getElementById('bus-minutes');
+            const busSecondsEl = document.getElementById('bus-seconds');
 
-            busMinutesEl.textContent = mins.toString().padStart(2, '0');
-            busSecondsEl.textContent = secs.toString().padStart(2, '0');
-            nextBusTimeEl.textContent = nextBus + " 発";
-        } else {
-            countdownDisplayEl.innerHTML = "<p>本日の技科大方面バスは終了しました。</p>";
-            nextBusTimeEl.textContent = "明日の時刻表をご確認ください";
+            if(busMinutesEl) busMinutesEl.textContent = mins.toString().padStart(2, '0');
+            if(busSecondsEl) busSecondsEl.textContent = secs.toString().padStart(2, '0');
+            if(nextBusTimeEl) nextBusTimeEl.textContent = nextBus + " 発";
         }
     }
 
