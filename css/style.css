@@ -330,39 +330,7 @@ footer::before {
 	font-family: ZenMaru;
 	src: url("/font/Zen_Maru_Gothic/ZenMaruGothic-Medium.ttf") format("truetype");
 }
-.lineup {
-	margin-top: 20px;
-	width: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-}
-.poster, .theme {
-	flex: 1;
-	display: flex;
-	justify-content: center;
-    align-items: center;
-}
-.poster {
-	padding: 10px 40px;
-}
-.poster img {
-	object-fit: contain;
-	border: 10px solid #ffffff79;
-    box-shadow: 0 0 5px #a8a8a8;
-}
-.theme {
-	flex-direction: column;
-}
-.theme_h2 {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-.theme_p {
-	margin: 0 0 20px 0;
-	font-size: 80px;
-	font-family: "ZenMaru";
-}
+
 
 /* === Access Page Specific Styles === */
 .map-container {
@@ -1009,6 +977,7 @@ p.next-bus-info {
         gap: 2.5rem;
         padding-top: 1vw;
         padding-bottom: 10vw;
+        overflow: visible;
     }
     .feature-block.layout-reversed .feature-content-text,
     .feature-block.layout-reversed .feature-poster-container {
@@ -1020,6 +989,10 @@ p.next-bus-info {
     .feature-poster-container img,
     .feature-block.layout-reversed .feature-poster-container img {
         transform: rotate(0); /* スマホでは傾きをなくす */
+    }
+    .feature-poster-container img:hover {
+        transform: none; /* ホバー時の拡大アニメーションを無効化 */
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* 影の変化も無効化 */
     }
 }
 /* === Feature Block Button Style === */
