@@ -155,15 +155,15 @@
   },
   {
     "id": "23",
-    "circle": "技科大祭実行員OB2",
-    "title": "射的",
+    "circle": "技科大祭実行委員OB",
+    "title": "技科大祭OBのガチ屋台・射的",
     "place": "屋外",
     "location": "テント10"
   },
   {
     "id": "24",
-    "circle": "技科大祭OB1",
-    "title": "はしまき",
+    "circle": "技科大祭実行委員OB",
+    "title": "技科大祭OBのガチ屋台・はしまき",
     "place": "屋外",
     "location": "テント11"
   },
