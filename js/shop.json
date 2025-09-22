@@ -1,224 +1,289 @@
 [
   {
-    "id": 1,
-    "number": "No.1/A-114",
-    "circle": "アニメーション&コミック研究会",
-    "title": "アニ研"
+    "id": "1",
+    "circle": "アニメーション＆コミック研究会",
+    "title": "アニメーション＆コミック研究会",
+    "place": "室内",
+    "location": "A-114"
   },
   {
-    "id": 2,
-    "number": "No.2/ホール",
-    "circle": "TUTものづくりサークル",
-    "title": "最新ものづくり体験！"
-  },
-  {
-    "id": 3,
-    "number": "No.3/ホール",
-    "circle": "ロボコン同好会",
-    "title": "ロボット操縦体験"
-  },
-  {
-    "id": 4,
-    "number": "No.4/リフレッシュルーム",
-    "circle": "2系非常勤職員",
-    "title": "きものPLUS"
-  },
-  {
-    "id": 5,
-    "number": "No.5/A-106",
-    "circle": "総合文化部喫茶部門",
-    "title": "TUTea&CoffeeClub"
-  },
-  {
-    "id": 6,
-    "number": "No.6/A-109",
-    "circle": "ダイバーシティ活動支援学生",
-    "title": "ダイバーシティ活動紹介"
-  },
-  {
-    "id": 7,
-    "number": "No.7/A-201",
+    "id": "2",
     "circle": "Jazz研究会",
-    "title": "Jazz喫茶"
+    "title": "Jazz喫茶",
+    "place": "室内",
+    "location": "A-201"
   },
   {
-    "id": 8,
-    "number": "No.8/A-203",
-    "circle": "模型部",
-    "title": "模型展示/プラモデル制作体験"
+    "id": "3",
+    "circle": "総合文化部喫茶部門",
+    "title": "TUTea & Coffee Club",
+    "place": "室内",
+    "location": "A-106"
   },
   {
-    "id": 9,
-    "number": "No.9/A-205",
-    "circle": "コンピュータクラブ",
-    "title": "コンピュータクラブ"
-  },
-  {
-    "id": 10,
-    "number": "No.10/A-207",
-    "circle": "写真部",
-    "title": "写真展"
-  },
-  {
-    "id": 11,
-    "number": "No.11/A-301",
-    "circle": "軽音楽部 D7sus4",
-    "title": "ライブハウスGIKA ROCK"
-  },
-  {
-    "id": 12,
-    "number": "No.12/A-312",
-    "circle": "競技麻雀部",
-    "title": "ま〜じゃん"
-  },
-  {
-    "id": 13,
-    "number": "No.13/A-306",
-    "circle": "カーボンニュートラル研究会",
-    "title": "CNSDGs憩いの広場"
-  },
-  {
-    "id": 14,
-    "number": "No.14/コモンズ(福利施設)",
+    "id": "4",
     "circle": "音楽技術部",
-    "title": "DJイベント"
+    "title": "DJイベント",
+    "place": "室内",
+    "location": "コモンズI"
   },
   {
-    "id": 15,
-    "number": "No.15/コモンズII 和室(福利施設)",
-    "circle": "技科大座",
-    "title": "技科大庵"
+    "id": "5",
+    "circle": "アナログげ～む俱楽部",
+    "title": "ボードゲーム体験会",
+    "place": "室内",
+    "location": "A-308"
   },
   {
-    "id": 16,
-    "number": "No.16/ひばりラウンジ(福利施設)",
-    "circle": "技科大レゴ部",
-    "title": "技科大レゴ部"
+    "id": "6",
+    "circle": "スタートアップ推進室",
+    "title": "ネイル体験サロン",
+    "place": "室内",
+    "location": "A-203"
   },
   {
-    "id": 17,
-    "number": "テント No.1",
-    "circle": "自動車研究部",
-    "title": "自動車研究部車輛展示"
+    "id": "7",
+    "circle": "おちゃのかい",
+    "title": "技科大庵",
+    "place": "室内",
+    "location": "コモンズII"
   },
   {
-    "id": 18,
-    "number": "テント No.2",
-    "circle": "自動車研究部",
-    "title": "餃子の楽園"
+    "id": "8",
+    "circle": "カーボンニュートラル研究会",
+    "title": "遊んで学ぶ！SDGsモルック",
+    "place": "室内",
+    "location": "A-303"
   },
   {
-    "id": 19,
-    "number": "テント No.3",
-    "circle": "2輪部",
-    "title": "豊橋フランク"
+    "id": "9",
+    "circle": "TUTものづくりサークル",
+    "title": "物販&作品展示会",
+    "place": "室内",
+    "location": "A棟1階ホール"
   },
   {
-    "id": 20,
-    "number": "テント No.4",
-    "circle": "ラグビー部",
-    "title": "焼き鳥屋 ノーサイド"
+    "id": "10",
+    "circle": "模型部(TuT)",
+    "title": "模型展示/プラモデル制作体験会",
+    "place": "室内",
+    "location": "A-205"
   },
   {
-    "id": 21,
-    "number": "テント No.5",
-    "circle": "留学生スポーツクラブ",
-    "title": "VietBistrp"
+    "id": "11",
+    "circle": "ロボコン同好会",
+    "title": "ロボット操縦体験&展示",
+    "place": "室内",
+    "location": "A棟1階ホール"
   },
   {
-    "id": 22,
-    "number": "テント No.6",
-    "circle": "マレーシアの留学生",
-    "title": "マレーシアの料理"
+    "id": "12",
+    "circle": "コンピュータクラブ",
+    "title": "コンピュータクラブ",
+    "place": "室内",
+    "location": "A-108"
   },
   {
-    "id": 23,
-    "number": "テント No.7",
-    "circle": "インドネシア留学生会",
-    "title": "インドネシア焼きそば：インドミーゴレン"
+    "id": "13",
+    "circle": "TUT謎解き制作チーム",
+    "title": "謎だらけの単位認定試験からの脱出",
+    "place": "室内",
+    "location": "A-207"
   },
   {
-    "id": 24,
-    "number": "テント No.8",
+    "id": "14",
+    "circle": "レゴ部",
+    "title": "レゴ作品展示",
+    "place": "室内",
+    "location": "ひばりラウンジ"
+  },
+  {
+    "id": "15",
+    "circle": "軽音楽部D7sus4",
+    "title": "GIKA ROCK 2025",
+    "place": "室内",
+    "location": "A-301"
+  },
+  {
+    "id": "16",
+    "circle": "弓道部",
+    "title": "的あて検定",
+    "place": "室内",
+    "location": "A-105"
+  },
+  {
+    "id": "17",
+    "circle": "ダンスサークルサークル",
+    "title": "ノマチカワサキ",
+    "place": "室内",
+    "location": "A-306"
+  },
+  {
+    "id": "18",
     "circle": "1系",
-    "title": "感動の肉とタピオカ"
+    "title": "タクトのタピオカ",
+    "place": "屋外",
+    "location": "テント7"
   },
   {
-    "id": 25,
-    "number": "テント No.9",
-    "circle": "豊橋日曜学校",
-    "title": "ワッフルワッフル"
+    "id": "19",
+    "circle": "株式会社salmon 豊橋支社",
+    "title": "Re:Pizza Salmon",
+    "place": "屋外",
+    "location": "テント21"
   },
   {
-    "id": 26,
-    "number": "テント No.10",
-    "circle": "技科大祭OB",
-    "title": "フライドポテト"
-  },
-  {
-    "id": 27,
-    "number": "テント No.11",
-    "circle": "油そばいつも君のそば",
-    "title": "油そばいつも君のそば"
-  },
-  {
-    "id": 28,
-    "number": "テント No.12",
+    "id": "20",
     "circle": "吹奏楽団",
-    "title": "Churro Ensemble"
+    "title": "Churro Ensemble",
+    "place": "屋外",
+    "location": "テント19"
   },
   {
-    "id": 29,
-    "number": "テント No.13",
-    "circle": "もっとずっとほっとどっぐ",
-    "title": "もっとずっとほっとどっぐ"
+    "id": "21",
+    "circle": "もっとずっとホットドック",
+    "title": "もっとずっとホットドック",
+    "place": "屋外",
+    "location": "テント6"
   },
   {
-    "id": 30,
-    "number": "テント No.14",
-    "circle": "学友会",
-    "title": "技科大だんご庵"
+    "id": "22",
+    "circle": "油そばいつも君のそば",
+    "title": "油そばいつも君のそば",
+    "place": "屋外",
+    "location": "テント17"
   },
   {
-    "id": 31,
-    "number": "テント No.15",
+    "id": "23",
+    "circle": "技科大祭実行員OB2",
+    "title": "射的",
+    "place": "屋外",
+    "location": "テント10"
+  },
+  {
+    "id": "24",
+    "circle": "技科大祭OB1",
+    "title": "はしまき",
+    "place": "屋外",
+    "location": "テント11"
+  },
+  {
+    "id": "25",
+    "circle": "計測システム研究室",
+    "title": "ダイムナルド",
+    "place": "屋外",
+    "location": "テント4"
+  },
+  {
+    "id": "26",
+    "circle": "インドネシア留学生会",
+    "title": "インドネシア料理",
+    "place": "屋外",
+    "location": "テント12"
+  },
+  {
+    "id": "27",
+    "circle": "4系研究室有志団体",
+    "title": "今年も400食売る揚げ物屋さん",
+    "place": "屋外",
+    "location": "テント9"
+  },
+  {
+    "id": "28",
     "circle": "ダンスサークル",
-    "title": "GILLE'S キッチン"
+    "title": "GILLE’S キッチン",
+    "place": "屋外",
+    "location": "テント14"
   },
   {
-    "id": 32,
-    "number": "テント No.16",
-    "circle": "硬式テニス部",
-    "title": "たません専門店"
+    "id": "29",
+    "circle": "荒川研究室",
+    "title": "甘味処 〜荒川研〜",
+    "place": "屋外",
+    "location": "テント16"
   },
   {
-    "id": 33,
-    "number": "テント No.17",
-    "circle": "ダイムドナルド",
-    "title": "100%ビーフパティハンバーガー！"
+    "id": "30",
+    "circle": "豊橋日曜学校",
+    "title": "52年続く日学伝統ワッフル",
+    "place": "屋外",
+    "location": "テント15"
   },
   {
-    "id": 34,
-    "number": "テント No.18",
-    "circle": "400食売りたい揚げ物屋さん",
-    "title": "400食売りたい揚げもの屋さん"
+    "id": "31",
+    "circle": "ラグビー部",
+    "title": "焼き鳥 のーさいど",
+    "place": "屋外",
+    "location": "テント3"
   },
   {
-    "id": 35,
-    "number": "テント No.19",
+    "id": "32",
+    "circle": "自動車研究部",
+    "title": "自動車研究部車輌展示＆唐揚げ販売",
+    "place": "屋外",
+    "location": "テント1,2"
+  },
+  {
+    "id": "33",
+    "circle": "学友会",
+    "title": "豊橋技んだこ",
+    "place": "屋外",
+    "location": "テント13"
+  },
+  {
+    "id": "34",
+    "circle": "剣道部",
+    "title": "めーん！うどん！！",
+    "place": "屋外",
+    "location": "テント20"
+  },
+  {
+    "id": "35",
     "circle": "国際交流クラブ",
-    "title": "焼うどん・世界のドリンク"
+    "title": "世界のカップ麺&飲み物",
+    "place": "屋外",
+    "location": "テント18"
   },
   {
-    "id": 36,
-    "number": "テント No.20",
-    "circle": "大門研究室",
-    "title": "ごっつたこ焼きでええやんけ"
+    "id": "36",
+    "circle": "あつしの焼きそば",
+    "title": "あつしの焼きそば",
+    "place": "屋外",
+    "location": "テント5"
   },
   {
-    "id": 37,
-    "number": "テント No.21",
-    "circle": "生物系研究室有志",
-    "title": "焼きそば&アイスパフェ"
+    "id": "37",
+    "circle": "技科大祭実行委員会",
+    "title": "とよチル商店",
+    "place": "屋外",
+    "location": "テント8"
+  },
+  {
+    "id": "A",
+    "circle": "アサイー viola",
+    "title": "アサイー viola",
+    "place": "屋外",
+    "location": "テントA"
+  },
+  {
+    "id": "B",
+    "circle": "おにぎり屋 転",
+    "title": "おにぎり屋 転",
+    "place": "屋外",
+    "location": "テントB"
+  },
+  {
+    "id": "C",
+    "circle": "クレープ屋 smilecafe_maru",
+    "title": "smilecafe_maru",
+    "place": "屋外",
+    "location": "テントC"
+  },
+  {
+    "id": "D",
+    "circle": "株式会社YUTAKA",
+    "title": "未定",
+    "place": "屋外",
+    "location": "テントD"
   }
 ]
