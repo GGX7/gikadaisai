@@ -145,7 +145,7 @@ header {
 .large-screen #menubar {
 	display: block;
 }
-.large-screen #menubar > nav > ul {
+.large-screen #menubar #menubar-pc > ul {
 	display: flex;
 	font-size: 0.85rem;
 	gap: 0.5rem;
@@ -588,8 +588,7 @@ p.next-bus-info {
     visibility: visible;
     transform: translateX(0); /* Slide in */
 }
-.small-screen #menubar nav,
-.small-screen #menubar nav ul {
+.small-screen #menubar nav {
     width: 100%;
 }
 .small-screen #menubar nav ul {
@@ -704,11 +703,11 @@ p.next-bus-info {
     border: 1px solid #eee;
     border-radius: 10px;
     padding: 1.5rem 1rem;
-    text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    min-height: 160px; /* タイルの高さをある程度揃える */
-    cursor: default; 
+    min-height: 160px;
+    cursor: pointer; 
+    text-decoration: none; 
 }
 
 .sponsor-tile:hover {
@@ -740,7 +739,7 @@ p.next-bus-info {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem 1.5rem; /* 縦の隙間と横の隙間 */
+    gap: 0.5rem 1.5rem;
 }
 .control-group {
     display: flex;
@@ -750,7 +749,7 @@ p.next-bus-info {
 .control-group label {
     font-size: 0.85rem;
     font-weight: 600;
-    white-space: nowrap; /* ラベルが改行しないように */
+    white-space: nowrap;
 }
 .control-group select {
     border: 1px solid #ddd;
@@ -760,78 +759,73 @@ p.next-bus-info {
     background-color: #fff;
 }
 
-
-/* === Shop List Page === */
+/* === Shop List Card Design === */
 .shop-list-container {
     display: grid;
-    gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
-.shop-item {
-    display: flex;
-    flex-direction: column;
+.shop-card {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.07);
     transition: all 0.3s ease;
     overflow: hidden;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.shop-item:hover {
+.shop-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
-.shop-icon {
+.shop-card-image {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 1 / 1; /* 正方形にする */
     background-color: #f5f5f5;
 }
-.shop-icon img {
+.shop-card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 画像をエリアいっぱいに表示 */
 }
-.shop-details {
+.shop-card-content {
     padding: 1.2rem;
     display: flex;
     flex-direction: column;
+    flex-grow: 1; /* カードの高さを揃える */
+}
+.shop-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0 0 1rem 0;
     flex-grow: 1;
 }
-
-/* ★--------- 企画名メインのレイアウトに固定 ---------★ */
-.shop-header {
+.shop-card-footer {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 1rem;
     margin-top: auto;
     padding-top: 0.75rem;
     border-top: 1px solid #f0f0f0;
-    order: 2; /* 表示順序を下に */
 }
-.shop-number {
-    font-size: 0.75rem;
-    font-weight: 600;
-    background: #eee;
-    padding: 0.2em 0.7em;
-    border-radius: 50px;
+.shop-card-circle {
+    font-size: 0.85rem;
+    font-weight: 500;
     color: #555;
+    line-height: 1.4;
 }
-.shop-circle {
-    font-size: 0.9rem;
+.shop-card-location {
+    background: #f0f0f0;
+    color: #555;
     font-weight: 600;
-    color: #666;
-}
-.shop-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-color);
-    line-height: 1.5;
-    margin: 0;
-    order: 1; /* 表示順序を上に */
-    flex-grow: 1;
+    font-size: 0.8rem;
+    padding: 0.3em 0.8em;
+    border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* === Contact Page Specific Styles === */
@@ -1014,4 +1008,22 @@ p.next-bus-info {
     background: #A50008; /* 少し暗い赤色 */
     transform: translateY(-3px);
     box-shadow: 0 7px 20px rgba(0,0,0,0.15);
+}
+
+
+/* === Navigation Display Control === */
+/* PC表示(.large-screen)の時 */
+.large-screen #menubar-sp {
+    display: none; /* モバイル用を非表示 */
+}
+.large-screen #menubar-pc {
+    display: block; /* PC用を表示 */
+}
+
+/* モバイル表示(.small-screen)の時 */
+.small-screen #menubar-pc {
+    display: none; /* PC用を非表示 */
+}
+.small-screen #menubar-sp {
+    display: block; /* モバイル用を表示 */
 }
