@@ -21,7 +21,7 @@
 	</div>
 
 	<div id="menubar">
-		<nav>
+		<nav id="menubar-pc">
 			<ul>
 				<li><a href="index.html">トップ</a></li>
 				<li class="ddmenu_parent"><a href="#">企画</a>
@@ -36,8 +36,19 @@
 				<li><a href="contact.html">お問い合わせ</a></li>
 			</ul>
 		</nav>
+		<nav id="menubar-sp">
+			<ul>
+				<li><a href="index.html">トップ</a></li>
+				<li><a href="events.html">イベント</a></li>
+				<li><a href="shops.html">模擬店・キッチンカー</a></li>
+				<li><a href="timetable.html">タイムテーブル</a></li>
+				<li><a href="outline.html">協賛</a></li>
+				<li><a href="access.html">アクセス</a></li>
+				<li><a href="contact.html">お問い合わせ</a></li>
+			</ul>
+		</nav>
 	</div>
-	</header>
+</header>
 
 <div id="contents">
 
@@ -53,7 +64,7 @@
 				<select id="filter-type">
 					<option value="all" selected>すべて</option>
 					<option value="indoor">屋内企画</option>
-					<option value="tent">テント企画</option>
+					<option value="tent">屋外企画</option>
 				</select>
 			</div>
 			<div class="control-group">
@@ -61,7 +72,7 @@
 				<select id="sort-key">
 					<option value="default" selected>デフォルト</option>
 					<option value="circle">団体名順</option>
-					<option value="number">ブース番号順</option>
+					<option value="location">場所順</option>
 				</select>
 				<select id="sort-order">
 					<option value="asc">昇順</option>
@@ -80,44 +91,45 @@
 
 </div>
 <footer>
-<div class="footer-container">
-		<div class="footer-col">
-			<div class="logo-footer">
-				<a href="index.html">
-					<span class="daigaku-footer">豊橋技術科学大学</span>
-					<span class="gikadaisai-footer">第48回技科大祭</span>
-				</a>
-			</div>
-			<address class="footer-address">
-				〒441-8580<br>
-				愛知県豊橋市天伯町雲雀ヶ丘1-1
-			</address>
-		</div>
-		<div class="footer-col">
-			<h4>Menu</h4>
-			<ul class="footer-nav">
-				<li><a href="index.html">トップ</a></li>
-				<li><a href="events.html">イベント</a></li>
-				<li><a href="shops.html">模擬店・キッチンカー</a></li>
-				<li><a href="timetable.html">タイムテーブル</a></li>
-				<li><a href="outline.html">協賛</a></li>
-				<li><a href="access.html">アクセス</a></li>
-				<li><a href="contact.html">お問い合わせ</a></li>
-			</ul>
-		</div>
-		<div class="footer-col">
-			<h4>Links</h4>
-			<ul class="footer-nav">
-				<li><a href="https://www.tut.ac.jp/">大学公式サイト</a></li>
-				<li><a href="https://x.com/tut_festival">公式X(Twitter)</a></li>
-				<li><a href="https://www.instagram.com/tut_festival/">公式Instagram</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="footer-bottom">
-		<small>Copyright&copy; 第48回技科大祭実行委員会 All Rights Reserved.</small>
-	</div>
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="logo-footer">
+                <a href="index.html">
+                    <span class="daigaku-footer">豊橋技術科学大学</span>
+                    <span class="gikadaisai-footer">第48回技科大祭</span>
+                </a>
+            </div>
+            <address class="footer-address">
+                〒441-8580<br>
+                愛知県豊橋市天伯町雲雀ヶ丘1-1
+            </address>
+        </div>
+        <div class="footer-col">
+            <h4>Menu</h4>
+            <ul class="footer-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="events.html">イベント</a></li>
+                <li><a href="shops.html">模擬店・キッチンカー</a></li>
+                <li><a href="timetable.html">タイムテーブル</a></li>
+                <li><a href="outline.html">協賛</a></li>
+                <li><a href="access.html">アクセス</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Links</h4>
+            <ul class="footer-nav">
+                <li><a href="https://www.tut.ac.jp/">大学公式サイト</a></li>
+                <li><a href="https://x.com/tut_festival">公式X(Twitter)</a></li>
+                <li><a href="https://www.instagram.com/tut_festival/">公式Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <small>Copyright&copy; 第48回技科大祭実行委員会 All Rights Reserved.</small>
+    </div>
 </footer>
+
 <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
 
 </div>
@@ -126,126 +138,81 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
-
 <script src="js/main.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // DOM要素の取得
     const shopListContainer = document.getElementById('shop-list');
     const filterSelect = document.getElementById('filter-type');
     const sortKeySelect = document.getElementById('sort-key');
     const sortOrderSelect = document.getElementById('sort-order');
 
-    // 全ての店舗データを保持する配列
     let allShops = [];
 
-    /**
-     * 店舗リストのHTMLを生成して表示するメイン関数
-     */
     const renderList = () => {
         if (!shopListContainer) return;
 
-        // 1. 絞り込み
         const filterValue = filterSelect.value;
         let filteredShops;
         if (filterValue === 'indoor') {
-            filteredShops = allShops.filter(s => !s.number.startsWith('テント'));
+            filteredShops = allShops.filter(shop => shop.place === '室内');
         } else if (filterValue === 'tent') {
-            filteredShops = allShops.filter(s => s.number.startsWith('テント'));
+            filteredShops = allShops.filter(shop => shop.place === '屋外');
         } else {
-            filteredShops = [...allShops]; // 全て表示
+            filteredShops = [...allShops];
         }
 
-        // 2. 並び替え
         const sortKey = sortKeySelect.value;
         const sortOrder = sortOrderSelect.value;
         if (sortKey !== 'default') {
             filteredShops.sort((a, b) => sortCompare(a, b, sortKey, sortOrder));
         }
 
-        // 3. HTMLを生成して表示
         shopListContainer.innerHTML = generateHtmlForShops(filteredShops) || '<p>該当する企画はありません。</p>';
     };
 
-    /**
-     * 2つの店舗オブジェクトを比較するための関数
-     */
     const sortCompare = (a, b, key, order) => {
-        let valA, valB;
-        if (key === 'circle') {
-            valA = a.circle;
-            valB = b.circle;
-        } else if (key === 'number') {
-            valA = extractNumbers(a.number);
-            valB = extractNumbers(b.number);
-        }
-
-        let comparison = 0;
-        if (key === 'circle') {
-            comparison = valA.localeCompare(valB, 'ja');
-        } else {
-            for (let i = 0; i < Math.max(valA.length, valB.length); i++) {
-                const numA = valA[i] || 0;
-                const numB = valB[i] || 0;
-                if (numA !== numB) {
-                    comparison = numA - numB;
-                    break;
-                }
-            }
-        }
+        let valA = a[key];
+        let valB = b[key];
+        let comparison = String(valA).localeCompare(String(valB), 'ja', { numeric: true, sensitivity: 'base' });
         return order === 'asc' ? comparison : -comparison;
     };
 
-    /**
-     * ブース番号文字列から数字の配列を抽出するヘルパー関数
-     */
-    const extractNumbers = (str) => {
-        const matches = str.match(/\d+/g);
-        return matches ? matches.map(Number) : [0];
-    };
-
-    /**
-     * 店舗データの配列からHTML文字列を生成する関数
-     */
     const generateHtmlForShops = (shops) => {
         return shops.map(shop => {
             const safeTitle = shop.title.replace(/</g, "&lt;").replace(/>/g, "&gt;");
             const safeCircle = shop.circle.replace(/"/g, "&quot;");
             const id = shop.id;
             return `
-                <div class="shop-item">
-                    <div class="shop-icon">
-                        <img src="data/shop/icon/${id}.png" alt="${safeCircle} アイコン" onerror="this.onerror=() => { this.onerror=null; this.src='data/shop/icon/default.png'; }; this.src='data/shop/icon/${id}.jpg';">
+                <div class="shop-card">
+                    <div class="shop-card-image">
+                        <img src="data/shop/icon/${id}.png" alt="${safeCircle} アイコン" onerror="this.onerror=null; this.src='data/shop/icon/default.png';">
                     </div>
-                    <div class="shop-details">
-                        <div class="shop-header">
-                            <span class="shop-number">${shop.number}</span>
-                            <span class="shop-circle">${shop.circle}</span>
+                    <div class="shop-card-content">
+                        <p class="shop-card-title">${safeTitle}</p>
+                        <div class="shop-card-footer">
+                            <span class="shop-card-circle">${safeCircle}</span>
+                            <span class="shop-card-location">${shop.location}</span>
                         </div>
-                        <p class="shop-title">${safeTitle}</p>
                     </div>
                 </div>
             `;
         }).join('');
     };
 
-    // --- 初期化とイベントリスナーの設定 ---
     if (filterSelect && sortKeySelect && sortOrderSelect) {
         filterSelect.addEventListener('change', renderList);
         sortKeySelect.addEventListener('change', renderList);
         sortOrderSelect.addEventListener('change', renderList);
     }
     
-    // 最初にJSONデータを読み込んでリストを表示
     (async () => {
         try {
             const response = await fetch('js/shop.json');
             if (!response.ok) throw new Error('shop.jsonの読み込みに失敗しました。');
             allShops = await response.json();
-            renderList(); // 初回表示
+            renderList();
         } catch (error) {
             console.error(error);
             shopListContainer.innerHTML = '<p>企画情報の読み込み中にエラーが発生しました。</p>';
