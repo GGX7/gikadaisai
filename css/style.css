@@ -887,7 +887,9 @@ p.next-bus-info {
     line-height: 1.8;
 }
 
-/* === Feature Block Redesign (Full Poster Visible) === */
+/* === Feature Blocks (Theme & Guest) === */
+
+/* --- コンテナ: 2列レイアウト (テーマセクション用) --- */
 .feature-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -895,21 +897,37 @@ p.next-bus-info {
     align-items: center;
     padding: 5vw var(--global-space);
     margin: 5vw 0;
-    overflow: hidden; /* はみ出し防止 */
+    overflow: hidden;
 }
 
-/* ゲストセクションで左右の配置を反転 */
-.feature-block.layout-reversed .feature-content-text {
-    order: 2;
-}
-.feature-block.layout-reversed .feature-poster-container {
-    order: 1;
+/* --- コンテナ: 1列レイアウト (ゲストセクション用) --- */
+.guest-feature-text-only {
+    padding: 5vw var(--global-space);
+    margin: 5vw 0;
 }
 
+/* --- ポスター画像のスタイル (テーマセクション用) --- */
+.feature-poster-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    transform: rotate(2deg);
+    transition: all 0.3s ease;
+}
+.feature-block.layout-reversed .feature-poster-container img {
+    transform: rotate(-2deg);
+}
+.feature-poster-container img:hover {
+    transform: rotate(0) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* --- 両セクション共通のテキストスタイル --- */
 .feature-content-text {
     text-align: center;
 }
-
 .feature-heading {
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -931,6 +949,7 @@ p.next-bus-info {
     color: var(--text-color);
 }
 
+/* --- テーマセクション専用テキストスタイル --- */
 .theme-showcase-text {
     font-family: "Zen Maru Gothic", "Noto Sans JP", serif;
     font-size: clamp(4rem, 20vw, 9rem);
@@ -940,56 +959,13 @@ p.next-bus-info {
     color: var(--dark-color);
 }
 
+/* --- ゲストセクション専用テキスト＆ボタンスタイル --- */
 .guest-showcase-text {
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.8;
     margin-bottom: 2.5rem;
 }
-
-.feature-poster-container img {
-    width: 100%;
-    height: auto;
-    object-fit: contain; /* ★ポスター画像を切り取らずに全体表示 */
-    border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    transform: rotate(2deg); /* ポスターを少し傾けて動きを出す */
-    transition: all 0.3s ease;
-}
-.feature-block.layout-reversed .feature-poster-container img {
-    transform: rotate(-2deg); /* 反対側のセクションは逆向きに傾ける */
-}
-.feature-poster-container img:hover {
-    transform: rotate(0) scale(1.05); /* ホバー時に傾きを戻して拡大 */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-}
-
-/* レスポンシブ対応 (スマホ表示) */
-@media screen and (max-width: 768px) {
-    .feature-block {
-        grid-template-columns: 1fr; /* 1列表示に切り替え */
-        gap: 2.5rem;
-        padding-top: 1vw;
-        padding-bottom: 10vw;
-        overflow: visible;
-    }
-    .feature-block.layout-reversed .feature-content-text,
-    .feature-block.layout-reversed .feature-poster-container {
-        order: 0; /* スマホでは反転を解除し、常にテキストが先 */
-    }
-    .feature-poster-container {
-        order: 2; /* スマホでは常にポスターが後 */
-    }
-    .feature-poster-container img,
-    .feature-block.layout-reversed .feature-poster-container img {
-        transform: rotate(0); /* スマホでは傾きをなくす */
-    }
-    .feature-poster-container img:hover {
-        transform: none; /* ホバー時の拡大アニメーションを無効化 */
-        box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* 影の変化も無効化 */
-    }
-}
-/* === Feature Block Button Style === */
 .feature-button {
     display: inline-block;
     margin-top: 1.5rem;
@@ -1003,11 +979,30 @@ p.next-bus-info {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-
 .feature-button:hover {
-    background: #A50008; /* 少し暗い赤色 */
+    background: #A50008;
     transform: translateY(-3px);
     box-shadow: 0 7px 20px rgba(0,0,0,0.15);
+}
+
+/* --- レスポンシブ対応 (テーマセクション用) --- */
+@media screen and (max-width: 768px) {
+    .feature-block {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        overflow: visible;
+    }
+    .feature-poster-container {
+        order: 2;
+    }
+    .feature-poster-container img,
+    .feature-block.layout-reversed .feature-poster-container img {
+        transform: rotate(0);
+    }
+    .feature-poster-container img:hover {
+        transform: none;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
 }
 
 
