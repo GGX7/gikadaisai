@@ -123,7 +123,7 @@
     "circle": "1系",
     "title": "タクトのタピオカ",
     "place": "屋外",
-    "location": "テント7"
+    "location": "テント12"
   },
   {
     "id": "19",
@@ -144,7 +144,7 @@
     "circle": "もっとずっとホットドック",
     "title": "もっとずっとホットドック",
     "place": "屋外",
-    "location": "テント6"
+    "location": "テント7"
   },
   {
     "id": "22",
@@ -179,7 +179,7 @@
     "circle": "インドネシア留学生会",
     "title": "インドネシア料理",
     "place": "屋外",
-    "location": "テント12"
+    "location": "テント6"
   },
   {
     "id": "27",
@@ -282,7 +282,7 @@
   {
     "id": "D",
     "circle": "株式会社YUTAKA",
-    "title": "未定",
+    "title": "株式会社YUTAKA",
     "place": "屋外",
     "location": "テントD"
   }
